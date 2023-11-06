@@ -1,22 +1,22 @@
 package org.example.dto;
 
 public class Quote {
-    Long id;
+    int id;
     String content;
     String author;
 
-    public Quote(Long id, String content, String author) {
+    public Quote(int id, String content, String author) {
         this.id = id;
         this.content = content;
         this.author = author;
     }
 
-    public Long getId() {
-        return id;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public int getId() {
+        return id;
     }
 
     public String getContent() {

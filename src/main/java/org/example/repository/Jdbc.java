@@ -13,19 +13,7 @@ public class Jdbc {
 
 
     public Connection getConnection(){
-
-        String createTable = "CREATE TABLE quote ("
-                + "id INT NOT NULL,\n "
-                + "content VARCHAR(100) NOT NULL,\n "
-                + "author VARCHAR(30) NOT NULL,\n "
-                + "created DATETIME NOT NULL,\n "
-                + ");";
-        String insertQuery = "INSERT INTO quote(id, content, author, created) values"
-                + "(?, ?, ?, ?)";
         Connection conn = null;
-        Statement stmt = null;
-        PreparedStatement pstmt = null;
-
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/quote_board?", Env.mySqlId, Env.mySqlPassword);

@@ -12,18 +12,16 @@ import org.junit.jupiter.api.Test;
 public class JdbcTest {
 
     @Test
-    @DisplayName("DriverManager로 Connection 객체 생성")
-    void DriverManage(){
+    @DisplayName("table 생성 테스트")
+    void createTableTest(){
 
-        String deleteTable = "DROP TABLE quote";
+
         String createTable = "CREATE TABLE quote ("
-                + "id INT NOT NULL,\n "
+                + "id INT PRIMARY KEY AUTO_INCREMENT,\n "
                 + "content VARCHAR(100) NOT NULL,\n "
                 + "author VARCHAR(30) NOT NULL,\n "
                 + "created DATETIME NOT NULL\n "
                 + ");";
-        String insertQuery = "INSERT INTO quote(id, content, author, created) values"
-                + "(?, ?, ?, ?)";
         Connection conn = null;
         Statement stmt = null;
         PreparedStatement pstmt = null;
