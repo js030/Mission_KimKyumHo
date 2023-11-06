@@ -1,6 +1,6 @@
-package application;
+package org.example.application;
 
-import service.QuoteService;
+import org.example.service.QuoteService;
 
 public class Main {
     static QuoteService service = new QuoteService();

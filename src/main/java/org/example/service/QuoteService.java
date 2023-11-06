@@ -1,6 +1,6 @@
-package service;
+package org.example.service;
 
-import repository.QuoteRepository;
+import org.example.repository.QuoteRepository;
 
 import java.util.Scanner;
 

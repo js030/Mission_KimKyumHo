@@ -1,10 +1,4 @@
-package repository;
-
-import domain.Quote;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
+package org.example.repository;
 
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -14,6 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Pattern;
+import org.example.domain.Quote;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 public class QuoteRepository {
     static long id = 0;

@@ -1,4 +1,4 @@
-package domain;
+package org.example.domain;
 
 public class Quote {
     Long id;
