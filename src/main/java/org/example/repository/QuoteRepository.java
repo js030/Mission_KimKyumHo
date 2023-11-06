@@ -4,28 +4,45 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Reader;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Pattern;
-import org.example.domain.Quote;
+import org.example.dto.Quote;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 public class QuoteRepository {
-    static long id = 0;
+    static Integer id = 0;
     Scanner sc = new Scanner(System.in);
     public static List<Quote> quotes = new ArrayList<>();
+    private static final Jdbc jdbc = new Jdbc();
 
     public void save() {
         System.out.print("명언 : ");
         String content = sc.nextLine();
         System.out.print("작가 : ");
         String author = sc.nextLine();
-        Quote quote = new Quote(++id, content, author);
-        quotes.add(quote);
+        String insertQuery = "INSERT INTO quote(id, content, author, created) values"
+                + "(?, ?, ?, ?)";
+        Connection conn = jdbc.getConnection();
+        try {
+            PreparedStatement pstmt = conn.prepareStatement(insertQuery);
+            pstmt.setInt(1, ++id);
+            pstmt.setString(2, content);
+            pstmt.setString(3, author);
+            pstmt.setTimestamp(4, Timestamp.valueOf(LocalDateTime.now()));
+            pstmt.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         System.out.println(id + "번 명언이 등록되었습니다.");
     }
 
