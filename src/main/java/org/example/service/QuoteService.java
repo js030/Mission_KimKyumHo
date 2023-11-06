@@ -22,7 +22,7 @@ public class QuoteService {
             } else if (cmd.startsWith("삭제?id=")) {
                 quoteRepository.DeleteById(cmd);
             } else if (cmd.startsWith("수정?id=")) {
-                quoteRepository.checkEditAndEdit(cmd);
+                quoteRepository.editById(cmd);
             }
         }
     }
