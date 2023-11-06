@@ -14,7 +14,6 @@ public class Jdbc {
 
     public Connection getConnection(){
 
-        String deleteTable = "DROP TABLE quote";
         String createTable = "CREATE TABLE quote ("
                 + "id INT NOT NULL,\n "
                 + "content VARCHAR(100) NOT NULL,\n "
